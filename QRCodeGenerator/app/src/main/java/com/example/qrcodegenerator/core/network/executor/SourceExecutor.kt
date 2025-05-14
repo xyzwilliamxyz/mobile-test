@@ -1,17 +1,15 @@
 package com.example.qrcodegenerator.core.network.executor
 
-import android.content.Context
+import android.app.Application
 import com.example.qrcodegenerator.R
 import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
-import dagger.hilt.android.qualifiers.ApplicationContext
 import retrofit2.HttpException
 import retrofit2.Response
 import timber.log.Timber
-import javax.inject.Inject
 
-class SourceExecutor @Inject constructor(
-    @ApplicationContext private val context: Context,
+class SourceExecutor(
+    private val appContext: Application,
     private val moshi: Moshi
 ) {
 
@@ -65,7 +63,7 @@ class SourceExecutor @Inject constructor(
         }.getOrNull()
         return BackendException(
             errorBodyDto?.error,
-            errorBodyDto?.message.orEmpty().ifEmpty { context.getString(R.string.generic_error_msg) }
+            errorBodyDto?.message.orEmpty().ifEmpty { appContext.getString(R.string.generic_error_msg) }
         )
     }
 
