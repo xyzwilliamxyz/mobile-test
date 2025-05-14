@@ -1,4 +1,4 @@
-package com.example.qrcodegenerator.presentation.core.theme
+package com.example.qrcodegenerator.core.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

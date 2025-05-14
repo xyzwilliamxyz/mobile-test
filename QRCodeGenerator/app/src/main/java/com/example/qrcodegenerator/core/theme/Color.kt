@@ -1,4 +1,4 @@
-package com.example.qrcodegenerator.presentation.core.theme
+package com.example.qrcodegenerator.core.theme
 
 import androidx.compose.ui.graphics.Color
 
