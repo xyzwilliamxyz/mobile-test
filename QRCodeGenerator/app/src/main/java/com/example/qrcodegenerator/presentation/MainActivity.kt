@@ -10,7 +10,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.qrcodegenerator.core.navigation.ScreenRoute
 import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
+import com.example.qrcodegenerator.presentation.home.HomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,11 @@ private fun App() {
 
     NavHost(navController, startDestination = ScreenRoute.Home.route) {
         composable(ScreenRoute.Home.route) {
-            // TODO
+            HomeScreen(
+                onNavigation = { route ->
+                    navController.navigate(route)
+                }
+            )
         }
         composable(ScreenRoute.QRCodeGeneration.route) {
             // TODO
