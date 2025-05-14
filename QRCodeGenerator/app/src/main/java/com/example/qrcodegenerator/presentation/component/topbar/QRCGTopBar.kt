@@ -1,4 +1,4 @@
-package com.example.qrcodegenerator.presentation.component
+package com.example.qrcodegenerator.presentation.component.topbar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

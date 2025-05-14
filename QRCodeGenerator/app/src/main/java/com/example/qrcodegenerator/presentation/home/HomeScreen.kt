@@ -16,7 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.qrcodegenerator.R
-import com.example.qrcodegenerator.presentation.component.QRCGTopBar
+import com.example.qrcodegenerator.presentation.component.topbar.QRCGTopBar
 import com.example.qrcodegenerator.presentation.component.fabmenu.SimpleFabMenu
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
