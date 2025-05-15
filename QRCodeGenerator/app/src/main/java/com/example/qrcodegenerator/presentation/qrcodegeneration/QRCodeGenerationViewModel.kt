@@ -1,5 +1,6 @@
 package com.example.qrcodegenerator.presentation.qrcodegeneration
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProvider
@@ -22,6 +23,8 @@ class QRCodeGenerationViewModel @Inject constructor(
     private val _state = MutableStateFlow(QRCodeGenerationState())
     val state = _state.asStateFlow()
 
+    private var enableTimer: Boolean = true // disable/enable timer for tests
+
     private var timerJob: Job? = null
 
     fun initialize() {
@@ -42,7 +45,9 @@ class QRCodeGenerationViewModel @Inject constructor(
                     seed = result.seed,
                     timeRemaining = result.secondsRemaining,
                 )
-                startTimer()
+                if (enableTimer) {
+                    startTimer()
+                }
             }.onFailure {
                 _state.value = QRCodeGenerationState(
                     isLoading = false,
@@ -67,6 +72,11 @@ class QRCodeGenerationViewModel @Inject constructor(
             }
             generateSeed()
         }
+    }
+
+    @VisibleForTesting
+    fun setTimer(enabled: Boolean) {
+        enableTimer = enabled
     }
 }
 
