@@ -7,6 +7,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.qrcodegenerator.R
+import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProvider
 import com.example.qrcodegenerator.core.navigation.ScreenRoute
 import com.example.qrcodegenerator.presentation.component.fabmenu.FabMenuOption
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +19,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : ViewModel() {
+class HomeViewModel @Inject constructor(
+    private val dispatcher: CoroutineDispatcherProvider,
+) : ViewModel() {
     private val _state = MutableStateFlow(HomeState())
     val state = _state.asStateFlow()
 
@@ -48,7 +51,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                 HomeNavigation.QRCodeScan
             }
         }
-        viewModelScope.launch {
+        viewModelScope.launch(dispatcher.io()) {
             _navigation.emit(destination)
         }
     }
