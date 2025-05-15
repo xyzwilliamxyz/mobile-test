@@ -65,6 +65,7 @@ class QRCodeGenerationViewModel @Inject constructor(
                     break
                 }
             }
+            generateSeed()
         }
     }
 }
