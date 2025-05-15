@@ -23,7 +23,7 @@ fun LoadingIndicator(
 
 @Preview
 @Composable
-private fun LoadingIndicator_Preview() {
+fun LoadingIndicator_Preview() {
     QRCodeGeneratorTheme {
         LoadingIndicator()
     }

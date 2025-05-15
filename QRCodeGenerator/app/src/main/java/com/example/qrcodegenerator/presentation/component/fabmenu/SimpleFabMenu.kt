@@ -85,7 +85,7 @@ private fun FabMenuItem(option: FabMenuOption, onClick: () -> Unit) {
 
 @Preview
 @Composable
-private fun SimpleFabMenu_Preview() {
+fun SimpleFabMenu_Preview() {
     QRCodeGeneratorTheme {
         SimpleFabMenu(
             options = listOf(

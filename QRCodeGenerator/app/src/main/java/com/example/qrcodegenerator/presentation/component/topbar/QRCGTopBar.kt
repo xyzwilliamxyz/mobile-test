@@ -50,7 +50,7 @@ fun QRCGTopBar(
 
 @Preview
 @Composable
-private fun QRCGTopBar_Preview() {
+fun QRCGTopBar_Preview() {
     QRCodeGeneratorTheme {
         Column(
             modifier = Modifier

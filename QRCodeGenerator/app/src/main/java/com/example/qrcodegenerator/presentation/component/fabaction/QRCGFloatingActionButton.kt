@@ -29,7 +29,7 @@ fun QRCGFloatingActionButton(
 
 @Preview
 @Composable
-private fun QRCGFloatingActionButton_Preview() {
+fun QRCGFloatingActionButton_Preview() {
     QRCodeGeneratorTheme {
         QRCGFloatingActionButton(
             icon = Icons.Default.Add,

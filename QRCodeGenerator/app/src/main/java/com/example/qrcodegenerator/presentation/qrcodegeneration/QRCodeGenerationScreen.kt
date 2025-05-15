@@ -84,7 +84,7 @@ private fun QRCodeSection(state: QRCodeGenerationState) {
 
 @Preview
 @Composable
-private fun QRCodeGenerationScreen_Preview() {
+fun QRCodeGenerationScreen_Preview() {
     QRCodeGeneratorTheme {
         QRCodeGenerationScreenInternal(
             state = QRCodeGenerationState(

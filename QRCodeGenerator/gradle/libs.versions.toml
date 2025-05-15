@@ -23,6 +23,7 @@ mockk = "1.14.2"
 kotlinx-coroutines-test = "1.10.2"
 androidx-test-junit = "1.6.1"
 turbine = "1.2.0"
+paparazzi = "1.3.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -76,3 +77,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 hilt = { id = "dagger.hilt.android.plugin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+paparazzi = { id = "app.cash.paparazzi", version.ref = "paparazzi" }

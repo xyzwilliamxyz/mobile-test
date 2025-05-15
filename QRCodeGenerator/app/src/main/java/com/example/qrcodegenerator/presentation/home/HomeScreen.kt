@@ -75,10 +75,26 @@ private fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
 
 @Preview
 @Composable
-private fun HomeScreen_Preview() {
+fun HomeScreen_Preview() {
     QRCodeGeneratorTheme {
         HomeScreenInternal(
             state = HomeState(),
+            actions = HomeActions(),
+        )
+    }
+}
+
+@Preview
+@Composable
+fun HomeScreen_FabMenuExpanded_Preview() {
+    QRCodeGeneratorTheme {
+        HomeScreenInternal(
+            state = HomeState(
+                fabOptions = listOf(
+                    HomeFabOption.QRCodeGeneration,
+                    HomeFabOption.QRCodeScan,
+                ),
+            ),
             actions = HomeActions(),
         )
     }
