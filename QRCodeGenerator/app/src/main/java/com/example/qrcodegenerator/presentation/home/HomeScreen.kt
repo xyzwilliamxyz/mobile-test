@@ -54,8 +54,9 @@ private fun HandleNavigation(
 
 @VisibleForTesting
 @Composable
-fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
+fun HomeScreenInternal(state: HomeState, actions: HomeActions, modifier: Modifier = Modifier) {
     Scaffold(
+        modifier = modifier,
         topBar = {
             QRCGTopBar(
                 title = stringResource(R.string.home_title),
@@ -77,7 +78,7 @@ fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
 
 @Preview
 @Composable
-fun HomeScreen_Preview() {
+private fun HomeScreen_Preview() {
     QRCodeGeneratorTheme {
         HomeScreenInternal(
             state = HomeState(),
@@ -88,7 +89,7 @@ fun HomeScreen_Preview() {
 
 @Preview
 @Composable
-fun HomeScreen_FabMenuExpanded_Preview() {
+private fun HomeScreen_FabMenuExpanded_Preview() {
     QRCodeGeneratorTheme {
         HomeScreenInternal(
             state = HomeState(

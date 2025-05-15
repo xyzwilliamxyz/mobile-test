@@ -41,8 +41,9 @@ fun QRCodeGenerationScreen(
 
 @VisibleForTesting
 @Composable
-fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackClick: () -> Unit) {
+fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackClick: () -> Unit, modifier: Modifier = Modifier) {
     Scaffold(
+        modifier = modifier,
         topBar = {
             QRCGTopBar(
                 title = stringResource(R.string.qr_code_generation_title),
