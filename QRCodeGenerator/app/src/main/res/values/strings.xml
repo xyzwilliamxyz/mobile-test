@@ -12,4 +12,8 @@
 
     <!-- QR Code Generation Screen -->
     <string name="qr_code_generation_title">QR Code</string>
+
+    <!-- QR Code Scan -->
+    <string name="qr_code_scan_title">Scan</string>
+    <string name="qr_code_scan_camera_permission_is_required">Camera permission is required</string>
 </resources>

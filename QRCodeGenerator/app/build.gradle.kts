@@ -65,6 +65,13 @@ dependencies {
     implementation(libs.moshi)
     implementation(libs.timber)
 
+    // QR Code
+    implementation(libs.zxing)
+    implementation(libs.camerax.camera2)
+    implementation(libs.camerax.lifecycle)
+    implementation(libs.camerax.view)
+    implementation(libs.mlkit.barcode.scanning)
+
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
@@ -76,5 +83,4 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.logging.interceptor)
-    implementation(libs.zxing)
 }

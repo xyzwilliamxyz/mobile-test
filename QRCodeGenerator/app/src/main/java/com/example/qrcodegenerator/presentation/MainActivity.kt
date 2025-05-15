@@ -12,6 +12,7 @@ import com.example.qrcodegenerator.core.navigation.ScreenRoute
 import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 import com.example.qrcodegenerator.presentation.home.HomeScreen
 import com.example.qrcodegenerator.presentation.qrcodegeneration.QRCodeGenerationScreen
+import com.example.qrcodegenerator.presentation.qrcodescan.QRCodeScanScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -47,7 +48,11 @@ private fun App() {
             )
         }
         composable(ScreenRoute.QRCodeScan.route) {
-            // TODO
+            QRCodeScanScreen(
+                onBackClick = {
+                    navController.popBackStack()
+                }
+            )
         }
     }
 }
