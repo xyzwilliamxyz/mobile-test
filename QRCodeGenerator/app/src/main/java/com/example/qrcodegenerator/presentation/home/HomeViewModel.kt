@@ -29,11 +29,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         onFacActionClick = ::onFabActionClick,
     )
 
-    init {
-        initialize()
-    }
-
-    private fun initialize() {
+    fun initialize() {
         _state.value = state.value.copy(
             fabOptions = listOf(
                 HomeFabOption.QRCodeGeneration,

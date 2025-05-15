@@ -31,6 +31,8 @@ fun HomeScreen(
     val navigation = viewModel.navigation
     val actions = viewModel.actions
 
+    LaunchedEffect(Unit) { viewModel.initialize() }
+
     HandleNavigation(navigation, onNavigation)
     HomeScreenInternal(state, actions)
 }

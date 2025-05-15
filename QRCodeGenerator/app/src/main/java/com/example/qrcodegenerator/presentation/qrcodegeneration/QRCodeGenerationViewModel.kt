@@ -24,7 +24,7 @@ class QRCodeGenerationViewModel @Inject constructor(
 
     private var timerJob: Job? = null
 
-    init {
+    fun initialize() {
         generateSeed()
     }
 
