@@ -6,9 +6,11 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 
 @Composable
-internal fun LoadingIndicator(
+fun LoadingIndicator(
     modifier: Modifier = Modifier,
 ) {
     Box(
@@ -16,5 +18,13 @@ internal fun LoadingIndicator(
         contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator()
+    }
+}
+
+@Preview
+@Composable
+private fun LoadingIndicator_Preview() {
+    QRCodeGeneratorTheme {
+        LoadingIndicator()
     }
 }
