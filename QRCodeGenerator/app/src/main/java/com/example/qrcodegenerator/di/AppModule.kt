@@ -4,6 +4,8 @@ import android.content.Context
 import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProvider
 import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProviderImpl
 import com.example.qrcodegenerator.core.network.executor.SourceExecutor
+import com.example.qrcodegenerator.core.utils.DefaultTimeProvider
+import com.example.qrcodegenerator.core.utils.TimeProvider
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -29,5 +31,10 @@ object AppModule {
             appContext = appContext,
             moshi = moshi,
         )
+    }
+
+    @Provides
+    fun provideTimeProvider(): TimeProvider {
+        return DefaultTimeProvider()
     }
 }
