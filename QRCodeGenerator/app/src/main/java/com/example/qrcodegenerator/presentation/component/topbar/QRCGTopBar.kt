@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.qrcodegenerator.R
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,14 +49,16 @@ fun QRCGTopBar(
 @Preview
 @Composable
 private fun QRCGTopBar_Preview() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-    ) {
-        QRCGTopBar(
-            "Title",
-            onBackClick = {},
-        )
+    QRCodeGeneratorTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(MaterialTheme.colorScheme.background)
+        ) {
+            QRCGTopBar(
+                "Title",
+                onBackClick = {},
+            )
+        }
     }
 }

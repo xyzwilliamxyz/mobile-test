@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 
 @Composable
 fun QRCGFloatingActionButton(
@@ -26,8 +27,10 @@ fun QRCGFloatingActionButton(
 @Preview
 @Composable
 private fun QRCGFloatingActionButton_Preview() {
-    QRCGFloatingActionButton(
-        icon = Icons.Default.Add,
-        onClick = {},
-    )
+    QRCodeGeneratorTheme {
+        QRCGFloatingActionButton(
+            icon = Icons.Default.Add,
+            onClick = {},
+        )
+    }
 }

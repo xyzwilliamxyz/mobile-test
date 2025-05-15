@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.qrcodegenerator.R
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 import com.example.qrcodegenerator.presentation.component.topbar.QRCGTopBar
 import com.example.qrcodegenerator.presentation.component.fabmenu.SimpleFabMenu
 import kotlinx.coroutines.flow.Flow
@@ -74,8 +75,10 @@ private fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
 @Preview
 @Composable
 private fun HomeScreen_Preview() {
-    HomeScreenInternal(
-        state = HomeState(),
-        actions = HomeActions()
-    )
+    QRCodeGeneratorTheme {
+        HomeScreenInternal(
+            state = HomeState(),
+            actions = HomeActions()
+        )
+    }
 }

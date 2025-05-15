@@ -27,6 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 import com.example.qrcodegenerator.presentation.component.fabaction.QRCGFloatingActionButton
 import com.example.qrcodegenerator.presentation.home.HomeFabOption
 
@@ -81,11 +82,13 @@ private fun FabMenuItem(option: FabMenuOption, onClick: () -> Unit) {
 @Preview
 @Composable
 fun SimpleFabMenu_Preview() {
-    SimpleFabMenu(
-        options = listOf(
-            HomeFabOption.QRCodeGeneration,
-            HomeFabOption.QRCodeScan,
-        ),
-        onClick = {}
-    )
+    QRCodeGeneratorTheme {
+        SimpleFabMenu(
+            options = listOf(
+                HomeFabOption.QRCodeGeneration,
+                HomeFabOption.QRCodeScan,
+            ),
+            onClick = {}
+        )
+    }
 }
