@@ -32,32 +32,36 @@ import com.example.qrcodegenerator.presentation.component.fabaction.QRCGFloating
 import com.example.qrcodegenerator.presentation.home.HomeFabOption
 
 @Composable
-fun SimpleFabMenu(options: List<FabMenuOption>, onClick: (FabMenuOption) -> Unit) {
+fun SimpleFabMenu(
+    options: List<FabMenuOption>,
+    onClick: (FabMenuOption) -> Unit,
+    modifier: Modifier = Modifier,
+) {
     var expanded by remember { mutableStateOf(false) }
 
     Box(
         contentAlignment = Alignment.BottomEnd,
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(16.dp),
     ) {
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp),
-            horizontalAlignment = Alignment.End
+            horizontalAlignment = Alignment.End,
         ) {
             val actonIcon = if (expanded) Icons.Default.Close else Icons.Default.Add
             if (expanded) {
                 options.forEach { option ->
                     FabMenuItem(
                         option = option,
-                        onClick = { onClick(option) }
+                        onClick = { onClick(option) },
                     )
                 }
             }
 
             QRCGFloatingActionButton(
                 icon = actonIcon,
-                onClick = { expanded = !expanded }
+                onClick = { expanded = !expanded },
             )
         }
     }
@@ -71,7 +75,7 @@ private fun FabMenuItem(option: FabMenuOption, onClick: () -> Unit) {
         colors = ButtonDefaults.outlinedButtonColors(
             containerColor = MaterialTheme.colorScheme.surface,
         ),
-        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp)
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
     ) {
         Text(text = stringResource(option.description))
         Spacer(modifier = Modifier.width(8.dp))
@@ -81,14 +85,14 @@ private fun FabMenuItem(option: FabMenuOption, onClick: () -> Unit) {
 
 @Preview
 @Composable
-fun SimpleFabMenu_Preview() {
+private fun SimpleFabMenu_Preview() {
     QRCodeGeneratorTheme {
         SimpleFabMenu(
             options = listOf(
                 HomeFabOption.QRCodeGeneration,
                 HomeFabOption.QRCodeScan,
             ),
-            onClick = {}
+            onClick = {},
         )
     }
 }

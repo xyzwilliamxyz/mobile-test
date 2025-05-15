@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CutCornerShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -49,7 +48,7 @@ import timber.log.Timber
 @Composable
 fun QRCodeScanScreen(
     viewModel: QRCodeScanViewModel = hiltViewModel(),
-    onBackClick: () -> Unit
+    onBackClick: () -> Unit,
 ) {
     val state = viewModel.state.collectAsState().value
     val actions = viewModel.actions
@@ -74,22 +73,22 @@ private fun QRCodeScanScreenInternal(onBackClick: () -> Unit, state: QRScanState
         },
         snackbarHost = {
             SnackbarHost(snackbarHostState)
-        }
+        },
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)
                 .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             WithPermission(
                 permission = Manifest.permission.CAMERA,
-                rationaleMessage = stringResource(R.string.qr_code_scan_camera_permission_is_required)
+                rationaleMessage = stringResource(R.string.qr_code_scan_camera_permission_is_required),
             ) {
                 Spacer(Modifier.height(64.dp))
                 CameraPreviewBox(
                     modifier = Modifier.size(350.dp),
-                    actions = actions
+                    actions = actions,
                 )
             }
         }
@@ -97,15 +96,14 @@ private fun QRCodeScanScreenInternal(onBackClick: () -> Unit, state: QRScanState
 }
 
 @Composable
-private fun CameraPreviewBox(modifier: Modifier = Modifier, actions: QRCodeScanActions) {
+private fun CameraPreviewBox(actions: QRCodeScanActions, modifier: Modifier = Modifier) {
     val lifecycleOwner = LocalLifecycleOwner.current
 
     AndroidView(
         modifier = modifier
             .aspectRatio(1f)
             .border(BorderStroke(8.dp, MaterialTheme.colorScheme.onBackground))
-            .clip(CutCornerShape(0.dp))
-            ,
+            .clip(CutCornerShape(0.dp)),
         factory = { context ->
             val previewView = PreviewView(context).apply {
                 scaleType = PreviewView.ScaleType.FILL_CENTER
@@ -137,7 +135,7 @@ private fun CameraPreviewBox(modifier: Modifier = Modifier, actions: QRCodeScanA
                         lifecycleOwner,
                         cameraSelector,
                         preview,
-                        imageAnalyzer
+                        imageAnalyzer,
                     )
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -145,7 +143,7 @@ private fun CameraPreviewBox(modifier: Modifier = Modifier, actions: QRCodeScanA
             }, ContextCompat.getMainExecutor(context))
 
             previewView
-        }
+        },
     )
 }
 
@@ -176,7 +174,6 @@ private fun processImageProxyWithMlKit(imageProxy: ImageProxy, actions: QRCodeSc
         }
 }
 
-
 @Preview
 @Composable
 private fun QRCodeScanScreen_Preview() {
@@ -184,7 +181,7 @@ private fun QRCodeScanScreen_Preview() {
         QRCodeScanScreenInternal(
             onBackClick = {},
             state = QRScanState(),
-            actions = QRCodeScanActions()
+            actions = QRCodeScanActions(),
         )
     }
 }

@@ -1,6 +1,5 @@
 package com.example.qrcodegenerator.di
 
-import android.app.Application
 import android.content.Context
 import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProvider
 import com.example.qrcodegenerator.core.dispatcher.CoroutineDispatcherProviderImpl
@@ -28,7 +27,7 @@ object AppModule {
     ): SourceExecutor {
         return SourceExecutor(
             appContext = appContext,
-            moshi = moshi
+            moshi = moshi,
         )
     }
 }

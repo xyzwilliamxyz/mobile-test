@@ -16,11 +16,11 @@ object DomainModule {
     @Provides
     fun providesGenerateSeedInteractor(
         qrCodeRepository: QRCodeRepository,
-        seedDataMapper: SeedDataMapper
+        seedDataMapper: SeedDataMapper,
     ): GenerateSeedInteractor {
         return GenerateSeedInteractorImpl(
             qrCodeRepository = qrCodeRepository,
-            seedDataMapper = seedDataMapper
+            seedDataMapper = seedDataMapper,
         )
     }
 }

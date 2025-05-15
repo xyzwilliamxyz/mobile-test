@@ -10,7 +10,7 @@ import timber.log.Timber
 
 class SourceExecutor(
     private val appContext: Context,
-    private val moshi: Moshi
+    private val moshi: Moshi,
 ) {
 
     suspend fun <T> execute(request: suspend () -> Response<T>): SourceResult<T> {
@@ -29,7 +29,7 @@ class SourceExecutor(
     private fun <T> Throwable.toSourceResult(): SourceResult<T> {
         return SourceResult(
             isSuccessful = false,
-            throwable = this
+            throwable = this,
         )
     }
 
@@ -40,7 +40,7 @@ class SourceExecutor(
             isSuccessful = false,
             code = code(),
             headers = headers,
-            throwable = throwable
+            throwable = throwable,
         )
     }
 
@@ -52,7 +52,7 @@ class SourceExecutor(
             body = body(),
             code = code(),
             headers = headers,
-            throwable = throwable
+            throwable = throwable,
         )
     }
 
@@ -63,7 +63,7 @@ class SourceExecutor(
         }.getOrNull()
         return BackendException(
             errorBodyDto?.error,
-            errorBodyDto?.message.orEmpty().ifEmpty { appContext.getString(R.string.generic_error_msg) }
+            errorBodyDto?.message.orEmpty().ifEmpty { appContext.getString(R.string.generic_error_msg) },
         )
     }
 

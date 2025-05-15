@@ -16,7 +16,7 @@ class SeedDataMapper @Inject constructor() {
         return Seed(
             seed = seedResponse.seed.orEmpty(),
             expiresAt = expiresAt,
-            secondsRemaining = secondsRemaining.toInt()
+            secondsRemaining = secondsRemaining.toInt(),
         )
     }
 }

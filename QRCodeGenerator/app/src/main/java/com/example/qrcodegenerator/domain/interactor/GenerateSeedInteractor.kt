@@ -5,12 +5,12 @@ import com.example.qrcodegenerator.domain.mapper.SeedDataMapper
 import com.example.qrcodegenerator.domain.model.Seed
 
 interface GenerateSeedInteractor {
-    suspend operator fun invoke() : Seed
+    suspend operator fun invoke(): Seed
 }
 
 class GenerateSeedInteractorImpl(
     private val qrCodeRepository: QRCodeRepository,
-    private val seedDataMapper: SeedDataMapper
+    private val seedDataMapper: SeedDataMapper,
 ) : GenerateSeedInteractor {
 
     override suspend fun invoke(): Seed {

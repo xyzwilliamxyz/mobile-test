@@ -8,7 +8,7 @@ import com.example.qrcodegenerator.data.repository.QRCodeRepository
 
 class QRCodeRemoteRepositoryImpl(
     private val sourceExecutor: SourceExecutor,
-    private val qrCodeApi: QRCodeApi
+    private val qrCodeApi: QRCodeApi,
 ) : QRCodeRepository {
 
     override suspend fun getSeed(): SourceResult<SeedResponse> {

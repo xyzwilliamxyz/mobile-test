@@ -24,10 +24,12 @@ import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 @Composable
 fun QRCGTopBar(
     title: String,
+    modifier: Modifier = Modifier,
     actions: @Composable RowScope.() -> Unit = {},
     onBackClick: (() -> Unit)? = null,
 ) {
     TopAppBar(
+        modifier = modifier,
         navigationIcon = {
             if (onBackClick != null) {
                 IconButton(onClick = onBackClick) {
@@ -53,7 +55,7 @@ private fun QRCGTopBar_Preview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
+                .background(MaterialTheme.colorScheme.background),
         ) {
             QRCGTopBar(
                 "Title",

@@ -17,15 +17,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.qrcodegenerator.R
 import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
-import com.example.qrcodegenerator.presentation.component.topbar.QRCGTopBar
 import com.example.qrcodegenerator.presentation.component.fabmenu.SimpleFabMenu
+import com.example.qrcodegenerator.presentation.component.topbar.QRCGTopBar
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
-    onNavigation: (String) -> Unit
+    onNavigation: (String) -> Unit,
 ) {
     val state = viewModel.state.collectAsState().value
     val navigation = viewModel.navigation
@@ -54,20 +54,19 @@ private fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
     Scaffold(
         topBar = {
             QRCGTopBar(
-                title = stringResource(R.string.home_title)
+                title = stringResource(R.string.home_title),
             )
         },
         floatingActionButton = {
             SimpleFabMenu(
                 state.fabOptions,
-                actions.onFacActionClick
+                actions.onFacActionClick,
             )
         },
     ) { paddingValues ->
         Column(
-            modifier = Modifier.padding(paddingValues).fillMaxSize().background(MaterialTheme.colorScheme.background)
+            modifier = Modifier.padding(paddingValues).fillMaxSize().background(MaterialTheme.colorScheme.background),
         ) {
-
         }
     }
 }
@@ -78,7 +77,7 @@ private fun HomeScreen_Preview() {
     QRCodeGeneratorTheme {
         HomeScreenInternal(
             state = HomeState(),
-            actions = HomeActions()
+            actions = HomeActions(),
         )
     }
 }

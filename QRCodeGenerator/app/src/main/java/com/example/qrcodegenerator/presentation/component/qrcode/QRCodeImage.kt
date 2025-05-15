@@ -7,12 +7,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.res.stringResource
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatWriter
-import com.google.zxing.common.BitMatrix
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.set
 import com.example.qrcodegenerator.R
+import com.google.zxing.BarcodeFormat
+import com.google.zxing.MultiFormatWriter
+import com.google.zxing.common.BitMatrix
 
 @Composable
 fun QrCodeImage(seed: String, modifier: Modifier = Modifier) {
@@ -21,7 +21,7 @@ fun QrCodeImage(seed: String, modifier: Modifier = Modifier) {
     Image(
         bitmap = qrBitmap,
         contentDescription = stringResource(R.string.qr_code_for_seed_content_description),
-        modifier = modifier
+        modifier = modifier,
     )
 }
 
@@ -30,7 +30,7 @@ private fun generateQrCodeBitmap(seed: String, size: Int = 512): ImageBitmap {
         seed,
         BarcodeFormat.QR_CODE,
         size,
-        size
+        size,
     )
 
     val bitmap = createBitmap(size, size)

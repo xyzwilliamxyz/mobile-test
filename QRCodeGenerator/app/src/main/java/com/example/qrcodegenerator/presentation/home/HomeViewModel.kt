@@ -38,7 +38,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
             fabOptions = listOf(
                 HomeFabOption.QRCodeGeneration,
                 HomeFabOption.QRCodeScan,
-            )
+            ),
         )
     }
 
@@ -59,7 +59,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
 }
 
 data class HomeState(
-    val fabOptions: List<HomeFabOption> = listOf()
+    val fabOptions: List<HomeFabOption> = listOf(),
 )
 
 sealed class HomeFabOption(

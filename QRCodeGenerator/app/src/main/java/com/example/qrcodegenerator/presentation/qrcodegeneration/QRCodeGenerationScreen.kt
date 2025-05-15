@@ -43,11 +43,11 @@ private fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackC
                 title = stringResource(R.string.qr_code_generation_title),
                 onBackClick = onBackClick,
             )
-        }
+        },
     ) { paddingValues ->
         Column(
             modifier = Modifier.padding(paddingValues).fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             QRCodeSection(state)
             Spacer(Modifier.height(32.dp))
@@ -62,7 +62,7 @@ private fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackC
 @Composable
 private fun QRCodeSection(state: QRCodeGenerationState) {
     Box(
-        modifier = Modifier.height(400.dp).fillMaxWidth()
+        modifier = Modifier.height(400.dp).fillMaxWidth(),
     ) {
         if (state.isLoading) {
             LoadingIndicator()
@@ -86,9 +86,9 @@ private fun QRCodeGenerationScreen_Preview() {
         QRCodeGenerationScreenInternal(
             state = QRCodeGenerationState(
                 seed = "03274be7c8d2ef35b0026d88f257f300",
-                timeRemaining = 15
+                timeRemaining = 15,
             ),
-            onBackClick = {}
+            onBackClick = {},
         )
     }
 }

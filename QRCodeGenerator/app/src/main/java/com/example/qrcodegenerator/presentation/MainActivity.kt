@@ -37,21 +37,21 @@ private fun App() {
             HomeScreen(
                 onNavigation = { route ->
                     navController.navigate(route)
-                }
+                },
             )
         }
         composable(ScreenRoute.QRCodeGeneration.route) {
             QRCodeGenerationScreen(
                 onBackClick = {
                     navController.popBackStack()
-                }
+                },
             )
         }
         composable(ScreenRoute.QRCodeScan.route) {
             QRCodeScanScreen(
                 onBackClick = {
                     navController.popBackStack()
-                }
+                },
             )
         }
     }

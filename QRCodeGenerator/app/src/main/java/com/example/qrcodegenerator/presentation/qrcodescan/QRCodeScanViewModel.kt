@@ -12,12 +12,12 @@ class QRCodeScanViewModel @Inject constructor() : ViewModel() {
     val state = _state.asStateFlow()
 
     val actions = QRCodeScanActions(
-        onQRCodeScanned = ::onQRCodeScanned
+        onQRCodeScanned = ::onQRCodeScanned,
     )
 
     private fun onQRCodeScanned(qrCode: String) {
         _state.value = _state.value.copy(
-            qrCodeRaw = qrCode
+            qrCodeRaw = qrCode,
         )
     }
 }
@@ -27,5 +27,5 @@ data class QRScanState(
 )
 
 data class QRCodeScanActions(
-    val onQRCodeScanned: (String) -> Unit = {}
+    val onQRCodeScanned: (String) -> Unit = {},
 )

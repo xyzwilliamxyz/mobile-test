@@ -17,7 +17,7 @@ private const val TIMER_DELAY = 1000L
 @HiltViewModel
 class QRCodeGenerationViewModel @Inject constructor(
     private val generateSeedInteractor: GenerateSeedInteractor,
-    private val dispatcher: CoroutineDispatcherProvider
+    private val dispatcher: CoroutineDispatcherProvider,
 ) : ViewModel() {
     private val _state = MutableStateFlow(QRCodeGenerationState())
     val state = _state.asStateFlow()
@@ -33,7 +33,7 @@ class QRCodeGenerationViewModel @Inject constructor(
             _state.value = QRCodeGenerationState(
                 isLoading = true,
                 seed = "",
-                timeRemaining = 0
+                timeRemaining = 0,
             )
             runCatching {
                 val result = generateSeedInteractor()
@@ -47,7 +47,7 @@ class QRCodeGenerationViewModel @Inject constructor(
                 _state.value = QRCodeGenerationState(
                     isLoading = false,
                     seed = "",
-                    timeRemaining = 0
+                    timeRemaining = 0,
                 )
             }
         }
@@ -72,7 +72,7 @@ class QRCodeGenerationViewModel @Inject constructor(
 data class QRCodeGenerationState(
     val seed: String = "",
     val isLoading: Boolean = false,
-    val timeRemaining: Int = 0
+    val timeRemaining: Int = 0,
 ) {
     fun formatTimeRemaining(): String {
         return "${timeRemaining}s..."

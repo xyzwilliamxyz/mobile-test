@@ -13,13 +13,13 @@ import androidx.compose.ui.platform.LocalContext
 fun WithPermission(
     permission: String,
     rationaleMessage: String,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     val context = LocalContext.current
     val permissionGranted = remember { mutableStateOf(false) }
 
     val permissionLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.RequestPermission()
+        ActivityResultContracts.RequestPermission(),
     ) { isGranted ->
         permissionGranted.value = isGranted
         if (!isGranted) {

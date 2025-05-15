@@ -16,11 +16,11 @@ object DataModule {
     @Provides
     fun provideQRCodeRemoteRepository(
         qrCodeApi: QRCodeApi,
-        sourceExecutor: SourceExecutor
+        sourceExecutor: SourceExecutor,
     ): QRCodeRepository {
         return QRCodeRemoteRepositoryImpl(
             qrCodeApi = qrCodeApi,
-            sourceExecutor = sourceExecutor
+            sourceExecutor = sourceExecutor,
         )
     }
 }

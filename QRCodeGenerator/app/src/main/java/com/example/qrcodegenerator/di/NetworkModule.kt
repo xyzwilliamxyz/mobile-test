@@ -29,7 +29,7 @@ object NetworkModule {
     fun provideRetrofit(
         @BaseUrl baseUrl: String,
         okHttpClient: OkHttpClient,
-        moshi: Moshi
+        moshi: Moshi,
     ): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
