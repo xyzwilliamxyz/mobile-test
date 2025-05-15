@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -43,6 +44,7 @@ fun SimpleFabMenu(options: List<FabMenuOption>, onClick: (FabMenuOption) -> Unit
             verticalArrangement = Arrangement.spacedBy(12.dp),
             horizontalAlignment = Alignment.End
         ) {
+            val actonIcon = if (expanded) Icons.Default.Close else Icons.Default.Add
             if (expanded) {
                 options.forEach { option ->
                     FabMenuItem(
@@ -53,7 +55,7 @@ fun SimpleFabMenu(options: List<FabMenuOption>, onClick: (FabMenuOption) -> Unit
             }
 
             QRCGFloatingActionButton(
-                icon = Icons.Default.Add,
+                icon = actonIcon,
                 onClick = { expanded = !expanded }
             )
         }
