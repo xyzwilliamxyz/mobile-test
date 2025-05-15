@@ -1,6 +1,6 @@
 package com.example.qrcodegenerator.core.network.executor
 
-import android.app.Application
+import android.content.Context
 import com.example.qrcodegenerator.R
 import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
@@ -9,7 +9,7 @@ import retrofit2.Response
 import timber.log.Timber
 
 class SourceExecutor(
-    private val appContext: Application,
+    private val appContext: Context,
     private val moshi: Moshi
 ) {
 

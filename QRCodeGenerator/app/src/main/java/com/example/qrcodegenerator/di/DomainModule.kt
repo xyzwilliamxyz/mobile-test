@@ -5,6 +5,7 @@ import com.example.qrcodegenerator.domain.interactor.GenerateSeedInteractor
 import com.example.qrcodegenerator.domain.interactor.GenerateSeedInteractorImpl
 import com.example.qrcodegenerator.domain.mapper.SeedDataMapper
 import dagger.Module
+import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
@@ -12,6 +13,7 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 object DomainModule {
 
+    @Provides
     fun providesGenerateSeedInteractor(
         qrCodeRepository: QRCodeRepository,
         seedDataMapper: SeedDataMapper

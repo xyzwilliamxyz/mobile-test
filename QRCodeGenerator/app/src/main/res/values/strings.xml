@@ -9,4 +9,7 @@
     <string name="home_title">Home</string>
     <string name="home_fab_option_scan">Scan</string>
     <string name="home_fab_option_qrcode">QR Code</string>
+
+    <!-- QR Code Generation Screen -->
+    <string name="qr_code_generation_title">QR Code</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.qrcodegenerator.R
 import com.example.qrcodegenerator.core.navigation.ScreenRoute
 import com.example.qrcodegenerator.presentation.component.fabmenu.FabMenuOption
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -41,13 +43,17 @@ class HomeViewModel @Inject constructor() : ViewModel() {
     }
 
     private fun onFabActionClick(option: FabMenuOption) {
-        when (option) {
+        val homeOption = option as HomeFabOption
+        val destination = when (homeOption) {
             is HomeFabOption.QRCodeGeneration -> {
-                _navigation.tryEmit(HomeNavigation.QRCodeGeneration)
+                HomeNavigation.QRCodeGeneration
             }
             is HomeFabOption.QRCodeScan -> {
-                _navigation.tryEmit(HomeNavigation.QRCodeScan)
+                HomeNavigation.QRCodeScan
             }
+        }
+        viewModelScope.launch {
+            _navigation.emit(destination)
         }
     }
 }
