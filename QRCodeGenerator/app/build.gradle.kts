@@ -76,4 +76,5 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.logging.interceptor)
+    implementation(libs.zxing)
 }
