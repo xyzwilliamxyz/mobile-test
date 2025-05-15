@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.spotless)
 }
 
 android {
@@ -83,4 +84,34 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.moshi.kotlin)
     implementation(libs.logging.interceptor)
+}
+
+spotless {
+    kotlin {
+        target("**/*.kt")
+        targetExclude("**/build/**/*.kt")
+
+        ktlint("1.0.0")
+            .setEditorConfigPath("$projectDir/config/.editorconfig")
+            .editorConfigOverride(
+                mapOf(
+                    "indent_size" to "4",
+                    "continuation_indent_size" to "4",
+                    "ktlint_standard_trailing-comma" to "true",
+                    "ktlint_standard_trailing-comma-on-call-site" to "true",
+                ),
+            ).customRuleSets(
+                listOf(
+                    "io.nlopez.compose.rules:ktlint:0.4.16",
+                ),
+            )
+
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+    kotlinGradle {
+        target("*.gradle.kts")
+        ktlint()
+    }
 }
