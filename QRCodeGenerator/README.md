@@ -6,7 +6,7 @@ A modern QR code generator and scanner for Android, built entirely with Jetpack 
 Check out a quick walkthrough of the app in action:
 | Quick Walkthrough |
 |-------------------|
-| <video src="" />  |
+| <video src="https://github.com/user-attachments/assets/9f14c517-0c29-43b3-8380-fbbc10d0ff91" />  |
 
 ## 🏁 Getting up and running
 
