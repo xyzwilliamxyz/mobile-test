@@ -1,6 +1,5 @@
 package com.example.qrcodegenerator.presentation.component.qrcode
 
-import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -10,6 +9,8 @@ import androidx.compose.ui.graphics.asImageBitmap
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.common.BitMatrix
+import androidx.core.graphics.createBitmap
+import androidx.core.graphics.set
 
 @Composable
 fun QrCodeImage(seed: String, modifier: Modifier = Modifier) {
@@ -30,10 +31,10 @@ private fun generateQrCodeBitmap(seed: String, size: Int = 512): ImageBitmap {
         size
     )
 
-    val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+    val bitmap = createBitmap(size, size)
     for (x in 0 until size) {
         for (y in 0 until size) {
-            bitmap.setPixel(x, y, if (bitMatrix[x, y]) android.graphics.Color.BLACK else android.graphics.Color.WHITE)
+            bitmap[x, y] = if (bitMatrix[x, y]) android.graphics.Color.BLACK else android.graphics.Color.WHITE
         }
     }
     return bitmap.asImageBitmap()
