@@ -44,27 +44,31 @@ Check out a quick walkthrough of the app in action:
 
 ## 🥁 Extras
 #### Run unit tests
-se the standard Gradle command to execute unit tests:
-    ./gradlew :app:testDebugUnitTest
+Use the standard Gradle command to execute unit tests:
+```
+./gradlew :app:testDebugUnitTest
+```
 
 #### 🖼️ Snapshot Testing with Paparazzi
 
 Record and verify UI snapshots:
 
 **Record snapshots**
-
-    ./gradlew :app:recordPaparazziDebug
+```
+./gradlew :app:recordPaparazziDebug
+```
 
 **Verify snapshots**
-
-    ./gradlew :app:verifyPaparazziDebug
+```
+./gradlew :app:verifyPaparazziDebug
+```
 
 #### 🧼 Auto-format with Spotless
 
 Automatically fix code style issues and apply formatting:
-
-    ./gradlew :app:spotlessApply
-
+```
+./gradlew :app:spotlessApply
+```
 
 ## 🛠️ Tech Stack & Libraries
 
