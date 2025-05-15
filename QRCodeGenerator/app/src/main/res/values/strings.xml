@@ -4,6 +4,7 @@
     <!-- Global -->
     <string name="back_content_description">Back</string>
     <string name="generic_error_msg">There was an error!</string>
+    <string name="qr_code_for_seed_content_description">QR Code for seed</string>
 
     <!-- Home Screen -->
     <string name="home_title">Home</string>
