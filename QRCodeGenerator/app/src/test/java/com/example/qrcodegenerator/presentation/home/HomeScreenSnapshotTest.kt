@@ -14,7 +14,10 @@ class HomeScreenSnapshotTest {
     fun `test HomeScreen initial state`() {
         paparazzi.snapshot {
             QRCodeGeneratorTheme {
-                HomeScreen_Preview()
+                HomeScreenInternal(
+                    state = HomeState(),
+                    actions = HomeActions(),
+                )
             }
         }
     }
@@ -23,7 +26,15 @@ class HomeScreenSnapshotTest {
     fun `test HomeScreen with fab menu expanded`() {
         paparazzi.snapshot {
             QRCodeGeneratorTheme {
-                HomeScreen_FabMenuExpanded_Preview()
+                HomeScreenInternal(
+                    state = HomeState(
+                        fabOptions = listOf(
+                            HomeFabOption.QRCodeGeneration,
+                            HomeFabOption.QRCodeScan,
+                        ),
+                    ),
+                    actions = HomeActions(),
+                )
             }
         }
     }

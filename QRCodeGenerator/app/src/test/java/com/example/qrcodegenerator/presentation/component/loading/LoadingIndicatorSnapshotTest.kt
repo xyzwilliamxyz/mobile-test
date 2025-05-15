@@ -1,6 +1,7 @@
 package com.example.qrcodegenerator.presentation.component.loading
 
 import app.cash.paparazzi.Paparazzi
+import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 import org.junit.Rule
 import org.junit.Test
 
@@ -12,7 +13,9 @@ class LoadingIndicatorSnapshotTest {
     @Test
     fun `test LoadingIndicator`() {
         paparazzi.snapshot {
-            LoadingIndicator_Preview()
+            QRCodeGeneratorTheme {
+                LoadingIndicator()
+            }
         }
     }
 }

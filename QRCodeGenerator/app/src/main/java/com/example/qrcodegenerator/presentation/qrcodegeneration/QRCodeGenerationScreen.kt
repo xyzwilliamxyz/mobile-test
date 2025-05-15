@@ -25,6 +25,7 @@ import com.example.qrcodegenerator.core.theme.QRCodeGeneratorTheme
 import com.example.qrcodegenerator.presentation.component.loading.LoadingIndicator
 import com.example.qrcodegenerator.presentation.component.qrcode.QrCodeImage
 import com.example.qrcodegenerator.presentation.component.topbar.QRCGTopBar
+import org.jetbrains.annotations.VisibleForTesting
 
 @Composable
 fun QRCodeGenerationScreen(
@@ -38,8 +39,9 @@ fun QRCodeGenerationScreen(
     QRCodeGenerationScreenInternal(state, onBackClick)
 }
 
+@VisibleForTesting
 @Composable
-private fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackClick: () -> Unit) {
+fun QRCodeGenerationScreenInternal(state: QRCodeGenerationState, onBackClick: () -> Unit) {
     Scaffold(
         topBar = {
             QRCGTopBar(
@@ -84,7 +86,7 @@ private fun QRCodeSection(state: QRCodeGenerationState) {
 
 @Preview
 @Composable
-fun QRCodeGenerationScreen_Preview() {
+private fun QRCodeGenerationScreen_Preview() {
     QRCodeGeneratorTheme {
         QRCodeGenerationScreenInternal(
             state = QRCodeGenerationState(

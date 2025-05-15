@@ -46,7 +46,7 @@ private fun generateQrCodeBitmap(seed: String, size: Int = 512): ImageBitmap {
 
 @Preview
 @Composable
-fun QRCodeImage_Preview() {
+private fun QRCodeImage_Preview() {
     QRCodeGeneratorTheme {
         QrCodeImage(
             seed = "49e5982edac923b3b4f29ff9da179d8f",

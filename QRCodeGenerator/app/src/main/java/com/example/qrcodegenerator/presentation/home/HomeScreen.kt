@@ -1,5 +1,6 @@
 package com.example.qrcodegenerator.presentation.home
 
+import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -51,8 +52,9 @@ private fun HandleNavigation(
     }
 }
 
+@VisibleForTesting
 @Composable
-private fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
+fun HomeScreenInternal(state: HomeState, actions: HomeActions) {
     Scaffold(
         topBar = {
             QRCGTopBar(
